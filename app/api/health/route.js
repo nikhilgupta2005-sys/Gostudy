@@ -18,10 +18,12 @@ export async function GET() {
     database: { kind: url.startsWith("file:") || !url ? "local file" : "hosted (libSQL/Turso)" },
     storage: {
       driver: resolveDriver(),
-      // On a host that resets the container each deploy this must be a mounted
-      // volume, or uploaded images vanish on the next release
       dir: resolveDriver() === "local" ? uploadDir() : undefined,
-      persisted: resolveDriver() !== "local" || !!process.env.UPLOAD_DIR?.trim(),
+      // Whether uploads survive a redeploy depends on the host, which cannot be
+      // detected reliably — public/uploads is perfectly durable on a laptop or a
+      // VPS, and wiped on Railway or Render. So report the fact, and let the
+      // note below say what it means for the host you are actually on.
+      usingVolume: !!process.env.UPLOAD_DIR?.trim(),
     },
     // Not having a mail provider is a valid choice, so this never fails the check
     mail: { driver: resolveMailDriver(), configured: mailerConfigured() },
@@ -49,6 +51,13 @@ export async function GET() {
   if (process.env.VERCEL && report.storage.driver === "local") {
     report.ok = false;
     report.storage.error = "Vercel's filesystem is read-only — configure Blob or Cloudinary";
+  } else if (report.storage.driver === "local" && !report.storage.usingVolume) {
+    report.storage.note =
+      process.env.NODE_ENV === "production"
+        ? "Uploads are written inside the app directory. That is fine on a VPS, but on a host " +
+          "that rebuilds the container each deploy (Railway, Render, Fly) set UPLOAD_DIR to a " +
+          "mounted volume or uploaded images are lost on the next release."
+        : "Uploads go to public/uploads — normal for local development.";
   }
 
   return NextResponse.json(report, { status: report.ok ? 200 : 503 });
