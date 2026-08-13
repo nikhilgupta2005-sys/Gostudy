@@ -1,0 +1,47 @@
+.section {
+  padding: 3rem 1.5rem 4rem;
+}
+
+.grid {
+  max-width: 56rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 1.4rem;
+  background: var(--surface-white);
+  border: 1px solid var(--border-soft);
+}
+
+.value {
+  font-family: var(--font-baloo);
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.value em {
+  font-style: normal;
+  color: var(--brand-red);
+}
+
+.label {
+  margin-top: 0.6rem;
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .grid { gap: 0.6rem; }
+  .card { padding: 1.3rem 0.5rem; }
+  .label { letter-spacing: 0.08em; }
+}

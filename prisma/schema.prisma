@@ -1,0 +1,222 @@
+// GoStudy — catalogue + admin database
+//
+// SQLite today (a file on disk, zero setup). The schema deliberately avoids
+// Postgres-only types, so moving to Turso (hosted SQLite) or Postgres later is
+// a datasource change plus a fresh migration — no query rewrites.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// ─────────────────────────── Admin accounts ───────────────────────────
+
+model AdminUser {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         String    @default("admin") // "owner" can manage other users
+  createdAt    DateTime  @default(now())
+  lastLoginAt  DateTime?
+  sessions     Session[]
+}
+
+model Session {
+  id        String    @id
+  userId    Int
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  userAgent String?
+
+  @@index([userId])
+}
+
+/// One row per failed sign-in, used to throttle brute-force attempts.
+model LoginAttempt {
+  id        Int      @id @default(autoincrement())
+  email     String
+  createdAt DateTime @default(now())
+
+  @@index([email, createdAt])
+}
+
+// ─────────────────────────── Site settings ────────────────────────────
+
+/// Single row (id = 1) holding everything the Home Page / branding tab edits.
+model Setting {
+  id Int @id @default(1)
+
+  siteName String @default("GoStudy")
+  tagline  String @default("")
+  logoUrl  String @default("")
+
+  heroTitle      String @default("")
+  heroText       String @default("")
+  promoMediaUrl  String @default("")
+  promoMediaType String @default("image")
+
+  enquiryMode    String @default("both") // form | whatsapp | both
+  whatsappNumber String @default("")
+
+  /// Email the shop when a bulk enquiry arrives. Falls back to contactEmail.
+  enquiryAlertsEnabled Boolean @default(true)
+  enquiryAlertEmail    String  @default("")
+
+  legalName      String @default("")
+  gst            String @default("")
+  contactEmail   String @default("")
+  contactPhone   String @default("")
+  contactAddress String @default("")
+  mapsLink       String @default("")
+
+  instagramHandle String @default("")
+  instagramUrl    String @default("")
+  facebookHandle  String @default("")
+  facebookUrl     String @default("")
+
+  stats Stat[]
+}
+
+model Stat {
+  id        Int     @id @default(autoincrement())
+  label     String
+  value     Int     @default(0)
+  suffix    String  @default("+")
+  position  Int     @default(0)
+  settingId Int     @default(1)
+  setting   Setting @relation(fields: [settingId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────── Catalogue ────────────────────────────────
+
+model Category {
+  id            Int           @id @default(autoincrement())
+  name          String
+  position      Int           @default(0)
+  subcategories Subcategory[]
+  products      Product[]
+}
+
+model Subcategory {
+  id         Int       @id @default(autoincrement())
+  name       String
+  position   Int       @default(0)
+  categoryId Int
+  category   Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  products   Product[]
+
+  @@unique([categoryId, name])
+}
+
+/// An extra filter facet — "Frame Color", "Size", … Admin-defined.
+model Attribute {
+  id       Int               @id @default(autoincrement())
+  name     String            @unique
+  position Int               @default(0)
+  options  AttributeOption[]
+}
+
+model AttributeOption {
+  id          Int                     @id @default(autoincrement())
+  value       String
+  position    Int                     @default(0)
+  attributeId Int
+  attribute   Attribute               @relation(fields: [attributeId], references: [id], onDelete: Cascade)
+  products    ProductAttributeValue[]
+
+  @@unique([attributeId, value])
+}
+
+model Product {
+  id            Int          @id @default(autoincrement())
+  name          String
+  summary       String       @default("")
+  description   String       @default("")
+  categoryId    Int?
+  category      Category?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  subcategoryId Int?
+  subcategory   Subcategory? @relation(fields: [subcategoryId], references: [id], onDelete: SetNull)
+
+  pricingType String @default("fixed") // fixed | range
+  priceMin    Int    @default(0)
+  priceMax    Int?
+
+  featured  Boolean @default(false)
+  published Boolean @default(true)
+  position  Int     @default(0)
+
+  amazonUrl   String @default("")
+  flipkartUrl String @default("")
+  meeshoUrl   String @default("")
+
+  media           ProductMedia[]
+  attributeValues ProductAttributeValue[]
+  enquiries       Enquiry[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([categoryId])
+}
+
+model ProductMedia {
+  id        Int     @id @default(autoincrement())
+  url       String
+  type      String  @default("image") // image | video
+  position  Int     @default(0)
+  productId Int
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+model ProductAttributeValue {
+  productId Int
+  optionId  Int
+  product   Product         @relation(fields: [productId], references: [id], onDelete: Cascade)
+  option    AttributeOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+
+  @@id([productId, optionId])
+  @@index([optionId])
+}
+
+/// Price bands shown as filters on the Products page — editable by admin.
+model PriceRange {
+  id       Int    @id @default(autoincrement())
+  label    String
+  min      Int    @default(0)
+  max      Int    @default(1000000)
+  position Int    @default(0)
+}
+
+// ─────────────────────────── Enquiries ────────────────────────────────
+
+model Enquiry {
+  id               Int      @id @default(autoincrement())
+  productId        Int?
+  product          Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  /// Kept denormalised so an enquiry survives the product being deleted.
+  productName      String   @default("")
+  name             String
+  phone            String
+  email            String   @default("")
+  deliveryLocation String   @default("")
+  priceDemand      String   @default("")
+  quantity         String   @default("")
+  message          String   @default("")
+  status           String   @default("new") // new | contacted | closed
+  adminNote        String   @default("")
+  /// Recorded to throttle spam and to help the shop spot abuse.
+  ip               String   @default("")
+  createdAt        DateTime @default(now())
+
+  @@index([status, createdAt])
+  @@index([ip, createdAt])
+  @@index([phone, createdAt])
+}

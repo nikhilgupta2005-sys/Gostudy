@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* ─── GoStudy brand tokens ──────────────────────────────
+   Palette supplied in the client brief (classmateshop.com reference),
+   plus the deep navy sampled from the GoStudy logo.            */
+:root {
+  /* Brand */
+  --brand-navy:     #0d2263;
+  --brand-navy-2:   #16307f;
+  --brand-red:      #e31e24;
+  --brand-red-dark: #c4161c;
+
+  /* Product accents */
+  --accent-blue:   #2e9bd6;
+  --accent-yellow: #ffd200;
+  --accent-green:  #4caf50;
+
+  /* Text */
+  --text-primary: #000000;
+  --text-muted:   #666666;
+  --text-on-dark: #ffffff;
+
+  /* Surfaces */
+  --surface-white: #ffffff;
+  --surface-tint:  #eef2fa;
+  --border-soft:   #e2e6ef;
+
+  --status-available: #4caf50;
+
+  /* Type scale */
+  --hero-title-size:    clamp(2.2rem, 5.4vw, 4.4rem);
+  --section-title-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  --text-body:  clamp(0.92rem, 1.2vw, 1.05rem);
+  --text-small: 0.72rem;
+
+  --background: var(--surface-tint);
+  --foreground: var(--text-primary);
+  --radius: 9999px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  min-height: 100svh;
+
+  /* Doodle pattern behind everything, as on the reference site */
+  background-color: var(--surface-tint);
+  background-image: url("/uploads/bg-pattern.jpg");
+  background-repeat: repeat;
+  background-size: 760px auto;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--brand-red);
+  color: #fff;
+}
+
+/* ─── Shared pill button ─────────────────────────────── */
+.pillBtn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  border: 1px solid var(--brand-navy);
+  background: transparent;
+  color: var(--brand-navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.pillBtn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--brand-red);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+.pillBtn:hover { color: #fff; border-color: var(--brand-red); }
+.pillBtn:hover::after { transform: scaleX(1); }
+
+.pillBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.pillBtn:disabled::after { transform: scaleX(0); }
+
+/* Primary call to action — red, per the brief */
+.pillBtn--solid {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  color: #fff;
+}
+
+.pillBtn--solid::after { background: var(--brand-navy); }
+.pillBtn--solid:hover { border-color: var(--brand-navy); }
+
+.pillBtn--onDark {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Panels sit on the doodle background, so they need a solid surface */
+.surfaceCard {
+  background: var(--surface-white);
+  border: 1px solid var(--border-soft);
+  border-radius: 1.3rem;
+}

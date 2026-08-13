@@ -1,0 +1,32 @@
+node_modules/
+.next/
+
+# Real environment values stay local; .env.example is the template that ships
+.env
+.env.local
+.env*.local
+
+# SQLite database lives here; migrations + seed can rebuild it
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# Admin-uploaded media is runtime data; the brand assets below ship with the repo
+public/uploads/*
+!public/uploads/logo.png
+!public/uploads/bg-pattern.jpg
+!public/uploads/board-green.jpg
+!public/uploads/board-stand.jpg
+!public/uploads/slate-tab.jpg
+!public/uploads/study-table.jpg
+!public/uploads/chalk-white.jpg
+!public/uploads/chalk-colour.jpg
+!public/uploads/duster-plastic.jpg
+!public/uploads/duster-wooden.jpg
+!public/uploads/dice-tokens.jpg
+!public/uploads/chess.jpg
+!public/uploads/easel-stand.jpg
+!public/uploads/easel-board.jpg
+!public/uploads/ludo.jpg
+!public/uploads/food-wrapper.jpg

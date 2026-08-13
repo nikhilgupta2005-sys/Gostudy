@@ -1,0 +1,22 @@
+.section {
+  padding: 1rem 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: min(56rem, 100%);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-white);
+  box-shadow: 0 24px 60px -24px rgba(13, 34, 99, 0.4);
+}
+
+.media {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 34rem;
+  object-fit: cover;
+}

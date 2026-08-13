@@ -1,0 +1,555 @@
+{
+  "settings": {
+    "siteName": "GoStudy",
+    "tagline": "Learn • Erase • Repeat",
+    "logoUrl": "/uploads/logo.png",
+    "heroTitle": "Everything They Need to Learn, Erase & Repeat",
+    "heroText": "Boards, slates, dustless chalk, study tables and classic wooden games — made for schools, homes and bulk buyers across India.",
+    "promoMediaUrl": "/uploads/board-green.jpg",
+    "promoMediaType": "image",
+    "stats": [
+      {
+        "label": "Products Delivered",
+        "value": 10000,
+        "suffix": "+"
+      },
+      {
+        "label": "Cities Covered",
+        "value": 50,
+        "suffix": "+"
+      },
+      {
+        "label": "Years of Experience",
+        "value": 10,
+        "suffix": "+"
+      }
+    ],
+    "whatsappNumber": "919541346001",
+    "enquiryMode": "both",
+    "legalName": "Bansal Trading Company",
+    "gst": "06CQOPM1329L1ZH",
+    "contactEmail": "bansal0925@gmail.com",
+    "contactPhone": "+91 95413 46001",
+    "contactAddress": "Bansal Trading Company, Shergarh Rd, Gali Number 1/2, Near Dheeraj Vatika, Kaithal, Haryana - 136027",
+    "mapsLink": "https://maps.app.goo.gl/sAECciMAJXvfFxhX8",
+    "instagramHandle": "@gostudy.bharat",
+    "instagramUrl": "https://www.instagram.com/gostudy.bharat?igsh=dmdmcTU1eWRzZmV3",
+    "facebookHandle": "GoStudy India",
+    "facebookUrl": "https://www.facebook.com/GoStudy"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Boards",
+      "subcategories": [
+        "Green & White",
+        "Black & White"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Board + Stand",
+      "subcategories": []
+    },
+    {
+      "id": 3,
+      "name": "Slates",
+      "subcategories": []
+    },
+    {
+      "id": 4,
+      "name": "Study Tables",
+      "subcategories": []
+    },
+    {
+      "id": 5,
+      "name": "Chalk",
+      "subcategories": [
+        "White",
+        "Colour / MultiColor"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Duster",
+      "subcategories": [
+        "Plastic",
+        "Wooden"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Games",
+      "subcategories": [
+        "Chess",
+        "Ludo",
+        "Tokens & Dice"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Easel Stand",
+      "subcategories": []
+    },
+    {
+      "id": 9,
+      "name": "Easel Board",
+      "subcategories": []
+    },
+    {
+      "id": 10,
+      "name": "Food Wrapper",
+      "subcategories": []
+    }
+  ],
+  "attributes": [
+    {
+      "id": 1,
+      "name": "Frame Color",
+      "options": [
+        "Red",
+        "Green",
+        "Blue",
+        "Purple",
+        "Yellow"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Frame Material",
+      "options": [
+        "Wood",
+        "Aluminum"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Size",
+      "options": [
+        "1 x 1 Feet",
+        "1 x 1.5 Feet",
+        "2 x 3 Feet",
+        "60 x 40 cm (2 x 1.5 ft)",
+        "60 x 48 cm",
+        "48 x 28 cm",
+        "30 x 30 cm",
+        "30 x 20 cm",
+        "46 cm Height",
+        "15 cm",
+        "3 cm",
+        "50 m Roll"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Build Material",
+      "options": [
+        "Plastic",
+        "Wood"
+      ]
+    }
+  ],
+  "priceRanges": [
+    {
+      "label": "Under ₹200",
+      "min": 0,
+      "max": 200
+    },
+    {
+      "label": "₹200 – ₹400",
+      "min": 200,
+      "max": 400
+    },
+    {
+      "label": "₹400 – ₹600",
+      "min": 400,
+      "max": 600
+    },
+    {
+      "label": "₹600 – ₹800",
+      "min": 600,
+      "max": 800
+    },
+    {
+      "label": "₹800+",
+      "min": 800,
+      "max": 1000000
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Green & White Board",
+      "summary": "Two-sided 60 x 40 cm board with a green chalk side and a white marker side, set in a sturdy green frame.",
+      "description": "A double-duty classroom board — write with chalk on the green face, switch to markers on the white face. The 60 x 40 cm panel is set in a moulded green frame with rounded corners, light enough to hang or carry but rigid enough for daily school use.\n\nIdeal for home study corners, tuition centres and school supply orders. Available in bulk for institutions — send an enquiry for slab pricing.",
+      "categoryId": 1,
+      "subcategory": "Green & White",
+      "pricingType": "fixed",
+      "priceMin": 385,
+      "priceMax": null,
+      "attributes": {
+        "Frame Color": "Green",
+        "Size": "60 x 40 cm (2 x 1.5 ft)"
+      },
+      "media": [
+        {
+          "url": "/uploads/board-green.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fFKcdNNNN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Tab Slate — White & Black Board",
+      "summary": "Red-framed 30 x 20 cm tab slate with a white marker side and a black chalk side. Built for small hands.",
+      "description": "The classic first slate, updated. One face takes chalk, the other takes markers, and the moulded red frame with a built-in carry tab survives being thrown in a school bag.\n\nAt 30 x 20 cm it is sized for pre-school and primary students. Popular as a bulk giveaway for schools and coaching centres.",
+      "categoryId": 3,
+      "subcategory": "",
+      "pricingType": "fixed",
+      "priceMin": 189,
+      "priceMax": null,
+      "attributes": {
+        "Frame Color": "Red",
+        "Size": "30 x 20 cm",
+        "Build Material": "Plastic"
+      },
+      "media": [
+        {
+          "url": "/uploads/slate-tab.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/TcUbnSuuuN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "White Board Study Table (Adjustable)",
+      "summary": "Foldable 60 x 48 cm study table with a whiteboard top, adjustable tilt and a clip to hold sheets.",
+      "description": "A study table and a whiteboard in one. The 60 x 48 cm top wipes clean like any marker board, tilts to a comfortable writing or reading angle, and folds flat for storage. A metal clip at the top holds worksheets or a book in place.\n\nAnti-skid feet keep it steady on a bed, floor or desk. Great for online classes and homework corners.",
+      "categoryId": 4,
+      "subcategory": "",
+      "pricingType": "fixed",
+      "priceMin": 769,
+      "priceMax": null,
+      "attributes": {
+        "Frame Color": "Red",
+        "Size": "60 x 48 cm"
+      },
+      "media": [
+        {
+          "url": "/uploads/study-table.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/Txv3vQuuuN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 4,
+      "name": "GoStudy Dustless White Chalk — 100 Sticks",
+      "summary": "Box of 100 dustless white chalk sticks for black and green boards. Soft, anti-scratch writing.",
+      "description": "Champagne-grade chalk that writes soft and bright without scratching the board or clouding the room with dust. Each box holds 100 uniform sticks.\n\nMade for black and green boards in schools, coaching centres and offices. Cartons available for institutional orders.",
+      "categoryId": 5,
+      "subcategory": "White",
+      "pricingType": "fixed",
+      "priceMin": 175,
+      "priceMax": null,
+      "attributes": {},
+      "media": [
+        {
+          "url": "/uploads/chalk-white.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fmviRNNNN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 5,
+      "name": "GoStudy Dustless Colour Chalk — 100 Sticks",
+      "summary": "Box of 100 dustless colour chalk sticks for black and green boards. Bright, soft, anti-scratch.",
+      "description": "The same soft, low-dust formula as our white chalk, in a full spread of colours. 100 sticks per box — ideal for diagrams, highlights, classroom art and rangoli.\n\nWrites cleanly on black and green boards and erases without ghosting.",
+      "categoryId": 5,
+      "subcategory": "Colour / MultiColor",
+      "pricingType": "fixed",
+      "priceMin": 175,
+      "priceMax": null,
+      "attributes": {},
+      "media": [
+        {
+          "url": "/uploads/chalk-colour.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fH7xdNNNN",
+        "meesho": ""
+      },
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Plastic Duster + 2 Markers",
+      "summary": "15 cm plastic whiteboard duster with a comfortable grip, bundled with two markers.",
+      "description": "A 15 cm moulded plastic duster with a felt base that lifts marker ink in one pass without smearing. Comes with two markers so the board is ready to use out of the box.\n\nLight, washable and easy to re-felt — a standard reorder item for schools.",
+      "categoryId": 6,
+      "subcategory": "Plastic",
+      "pricingType": "fixed",
+      "priceMin": 129,
+      "priceMax": null,
+      "attributes": {
+        "Size": "15 cm",
+        "Build Material": "Plastic"
+      },
+      "media": [
+        {
+          "url": "/uploads/duster-plastic.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fkb7dNNNN",
+        "meesho": ""
+      },
+      "featured": false
+    },
+    {
+      "id": 7,
+      "name": "Wooden Duster + 2 Markers",
+      "summary": "15 cm solid wood whiteboard duster with a felt base, bundled with two markers.",
+      "description": "A solid wood duster with a deep felt pad — heavier than plastic, so it cleans a large board with less effort and lasts through years of classroom use. Supplied with two markers.\n\nThe wooden body takes a firm grip and does not crack when dropped.",
+      "categoryId": 6,
+      "subcategory": "Wooden",
+      "pricingType": "fixed",
+      "priceMin": 249,
+      "priceMax": null,
+      "attributes": {
+        "Size": "15 cm",
+        "Build Material": "Wood"
+      },
+      "media": [
+        {
+          "url": "/uploads/duster-wooden.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/TcXqnhuuuN",
+        "meesho": ""
+      },
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "Transparent Dice for Ludo & Board Games",
+      "summary": "3 cm transparent dice with bright inlaid pips — for Ludo, Snake & Ladder and other board games.",
+      "description": "Chunky 3 cm transparent dice with colour-inlaid pips that stay readable across the table. Rolls true and is large enough for small children to handle.\n\nSold as a replacement or add-on set for Ludo, Snake & Ladder and other family board games.",
+      "categoryId": 7,
+      "subcategory": "Tokens & Dice",
+      "pricingType": "fixed",
+      "priceMin": 159,
+      "priceMax": null,
+      "attributes": {
+        "Size": "3 cm"
+      },
+      "media": [
+        {
+          "url": "/uploads/dice-tokens.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fUWauNNNN",
+        "meesho": ""
+      },
+      "featured": false
+    },
+    {
+      "id": 9,
+      "name": "Green & White Board with Wooden Easel Stand",
+      "summary": "1 x 1.5 feet blue-framed board with a chalk side and a marker side, on a folding wooden easel stand.",
+      "description": "A complete little teaching station: a 1 x 1.5 feet (roughly 30 x 40 cm) two-sided board in a blue frame, mounted on a folding wooden easel stand.\n\nStands on a table or the floor, folds flat when the lesson is over. A favourite for home tutoring, play schools and shop signage.",
+      "categoryId": 2,
+      "subcategory": "",
+      "pricingType": "fixed",
+      "priceMin": 699,
+      "priceMax": null,
+      "attributes": {
+        "Frame Color": "Blue",
+        "Frame Material": "Wood",
+        "Size": "1 x 1.5 Feet"
+      },
+      "media": [
+        {
+          "url": "/uploads/board-stand.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fS5adNNNN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 10,
+      "name": "Premium Wooden Chess — Magnetic & Foldable",
+      "summary": "30 x 30 cm magnetic wooden chess board that folds into its own cushioned storage case.",
+      "description": "A 30 x 30 cm wooden chess board with magnetic pieces that hold their squares, an ultra-smooth playing surface, and a hinged body that folds shut into a cushioned storage case with every piece inside.\n\nTravel-friendly and solid enough for club play. A regular gifting and tournament-prize pick.",
+      "categoryId": 7,
+      "subcategory": "Chess",
+      "pricingType": "fixed",
+      "priceMin": 649,
+      "priceMax": null,
+      "attributes": {
+        "Size": "30 x 30 cm",
+        "Build Material": "Wood"
+      },
+      "media": [
+        {
+          "url": "/uploads/chess.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/TcI6KouuuN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 11,
+      "name": "Wooden Easel Stand — 46 cm",
+      "summary": "46 cm tall wooden easel stand for boards, canvases and artwork. Folds flat.",
+      "description": "A 46 cm tabletop easel in solid wood, with metal hinges that let it fold flat for storage. Holds boards, canvases, menu cards and display prints.\n\nUsed at home for art practice and in shops for counter displays.",
+      "categoryId": 8,
+      "subcategory": "",
+      "pricingType": "fixed",
+      "priceMin": 299,
+      "priceMax": null,
+      "attributes": {
+        "Size": "46 cm Height",
+        "Build Material": "Wood"
+      },
+      "media": [
+        {
+          "url": "/uploads/easel-stand.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/TcMVGsuuuN",
+        "meesho": ""
+      },
+      "featured": false
+    },
+    {
+      "id": 12,
+      "name": "Wooden Easel Board — A Frame",
+      "summary": "48 x 28 cm A-frame wooden easel board with a chalk face and a marker face.",
+      "description": "A free-standing A-frame board in solid wood — 48 x 28 cm of writing area, black on one side for chalk and white on the other for markers.\n\nOpens into a stable A and folds shut flat. Works as a café menu board, a shop sign or a home study board.",
+      "categoryId": 9,
+      "subcategory": "",
+      "pricingType": "fixed",
+      "priceMin": 499,
+      "priceMax": null,
+      "attributes": {
+        "Frame Material": "Wood",
+        "Size": "48 x 28 cm"
+      },
+      "media": [
+        {
+          "url": "/uploads/easel-board.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/TcvOevuuuN",
+        "meesho": ""
+      },
+      "featured": false
+    },
+    {
+      "id": 13,
+      "name": "Wooden Ludo + Snake & Ladder Board",
+      "summary": "30 x 30 cm two-in-one wooden-framed board — Ludo on one side, Snake & Ladder on the other. Tokens and dice included.",
+      "description": "One board, two classics. Ludo is printed on one face and Snake & Ladder on the other, both on a 30 x 30 cm panel set in a solid wooden frame that will not warp.\n\nTokens and dice come packed in a clear box. A standing favourite for family evenings and school game periods.",
+      "categoryId": 7,
+      "subcategory": "Ludo",
+      "pricingType": "fixed",
+      "priceMin": 298,
+      "priceMax": null,
+      "attributes": {
+        "Frame Material": "Wood",
+        "Size": "30 x 30 cm",
+        "Build Material": "Wood"
+      },
+      "media": [
+        {
+          "url": "/uploads/ludo.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fLYhdNNNN",
+        "meesho": ""
+      },
+      "featured": true
+    },
+    {
+      "id": 14,
+      "name": "Food Wrapper Paper — 50 m Roll",
+      "summary": "50 m / 500 gm roll of non-stick butter paper for home and restaurant use. Toxic free and eco-friendly.",
+      "description": "A 50 m roll (about 500 gm) of non-stick butter paper for wrapping rotis, sandwiches, burgers and bakery items. Toxic free and eco-friendly, so it goes straight from the kitchen to the customer.\n\nSized for restaurants, cloud kitchens, tiffin services and home use. Bulk cartons available on enquiry.",
+      "categoryId": 10,
+      "subcategory": "",
+      "pricingType": "fixed",
+      "priceMin": 172,
+      "priceMax": null,
+      "attributes": {
+        "Size": "50 m Roll"
+      },
+      "media": [
+        {
+          "url": "/uploads/food-wrapper.jpg",
+          "type": "image"
+        }
+      ],
+      "marketplace": {
+        "amazon": "",
+        "flipkart": "https://dl.flipkart.com/s/!fso9TNNNN",
+        "meesho": ""
+      },
+      "featured": false
+    }
+  ],
+  "enquiries": []
+}
