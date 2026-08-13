@@ -121,10 +121,32 @@ string does not remount the component, so the two silently desync — that was a
 The app runs unchanged on two very different kinds of host. Pick one, set the environment
 variables, deploy. `/api/health` reports what it actually resolved, so check it after release.
 
-### A host with a real disk — VPS, Render, Railway, Fly
+### Railway (or any host with a persistent volume)
 
-Nothing to change. Keep `DATABASE_URL="file:./data/gostudy.db"`, put `data/` on the persistent
-volume, and run `npm run db:deploy` on each release. Uploads keep going to `public/uploads`.
+No external database or blob store — SQLite and the uploads both live on one mounted volume.
+`railway.json` already sets the build and start commands, so the only manual setup is the volume
+and four environment variables.
+
+**1. Create the service** from this GitHub repo, then add a **Volume** mounted at `/data`.
+
+**2. Environment variables:**
+
+| Variable | Value |
+| --- | --- |
+| `DATABASE_URL` | `file:/data/gostudy.db` |
+| `UPLOAD_DIR` | `/data/uploads` |
+| `SESSION_SECRET` | a long random string |
+| `NEXT_PUBLIC_SITE_URL` | `https://<your-domain>` |
+
+**3. Deploy.** The start command runs `prisma migrate deploy` and then the seed (which only fills
+empty tables), so the first boot creates the schema, the catalogue and the admin account by
+itself. Nothing to run by hand.
+
+**4. Verify** at `/api/health` — `storage.persisted` must be `true`. If it is `false`, `UPLOAD_DIR`
+is not set and every uploaded image will disappear on the next deploy.
+
+> Both paths must be on the volume. The container filesystem is rebuilt on each release, so a
+> database or an upload directory outside `/data` is wiped every time you deploy.
 
 ### Vercel (serverless)
 

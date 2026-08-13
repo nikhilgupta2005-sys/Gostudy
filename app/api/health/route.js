@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { resolveDriver } from "@/lib/storage";
+import { resolveDriver, uploadDir } from "@/lib/storage";
 import { resolveMailDriver, mailerConfigured } from "@/lib/mailer";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +16,13 @@ export async function GET() {
     ok: true,
     env: process.env.NODE_ENV,
     database: { kind: url.startsWith("file:") || !url ? "local file" : "hosted (libSQL/Turso)" },
-    storage: { driver: resolveDriver() },
+    storage: {
+      driver: resolveDriver(),
+      // On a host that resets the container each deploy this must be a mounted
+      // volume, or uploaded images vanish on the next release
+      dir: resolveDriver() === "local" ? uploadDir() : undefined,
+      persisted: resolveDriver() !== "local" || !!process.env.UPLOAD_DIR?.trim(),
+    },
     // Not having a mail provider is a valid choice, so this never fails the check
     mail: { driver: resolveMailDriver(), configured: mailerConfigured() },
   };
